@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+$primary-font: "Karla", sans-serif;
+$primary-color: #696773;
+$seconday-color: #eff1f3;
+$tetiary-color: #ef8354;
+$box-padding: 1.6rem 0 1.6rem 0;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $primary-font;
+}
+
+@mixin flex-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $seconday-color;
+  border-bottom: 1px solid gray;
+}
+
+@mixin flex-content-border {
+  &--gray {
+    flex: 1;
+    text-align: center;
+    background-color: $seconday-color;
+    border-right: 1px solid gray;
+    padding: $box-padding;
+    font-size: 3rem;
+  }
+  &--yellow {
+    flex: 1;
+    text-align: center;
+    background-color: $tetiary-color;
+    padding: $box-padding;
+    color: white;
+    font-size: 3rem;
+  }
+}
+
+@mixin flex-content-border-last {
+  &--gray {
+    &:nth-child(1) {
+      flex: 2;
+      text-align: center;
+      background-color: $seconday-color;
+      border-right: 1px solid gray;
+      padding: $box-padding;
+      font-size: 3rem;
+    }
+    &:nth-child(2) {
+      flex: 1;
+      text-align: center;
+      background-color: $seconday-color;
+      border-right: 1px solid gray;
+      padding: $box-padding;
+      font-size: 3rem;
+    }
+  }
+
+  &--yellow {
+    &:nth-child(3) {
+      flex: 1;
+      text-align: center;
+      background-color: $tetiary-color;
+      padding: $box-padding;
+      color: white;
+      font-size: 3rem;
+    }
+  }
+}
+
+.layout {
+  width: 650px;
+  margin: 5rem auto 0 auto;
+
+  .layout__header {
+    background-color: $primary-color;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.4rem 0 1.4rem 0;
+    &--text {
+      color: white;
+      margin-right: 1rem;
+      font-size: 5rem;
+    }
+  }
+
+  .layout__first-section {
+    @include flex-content;
+    @include flex-content-border;
+  }
+
+  .layout__second-section {
+    @include flex-content;
+    @include flex-content-border;
+  }
+
+  .layout__third-section {
+    @include flex-content;
+    @include flex-content-border;
+  }
+
+  .layout__fourth-section {
+    @include flex-content;
+    @include flex-content-border;
+  }
+  .layout__fifth-section {
+    @include flex-content;
+    @include flex-content-border-last;
+  }
+
+  .title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+    html {
+        font-size: 50%;
+    }
+
+    .layout {
+        width: 550px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    html {
+        font-size: 40%;
+    }
+
+    .layout {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    html {
+        font-size: 30%;
+    }
+
+    .layout {
+        width: 300px;
+    }
+}
